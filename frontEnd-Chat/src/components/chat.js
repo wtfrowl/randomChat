@@ -16,7 +16,7 @@ const Chat = ({ socket, partnerId, onDisconnect }) => {
   }
     // Listen for incoming messages
     socket.on('message', (data) => {
-        console.log(data)
+       // console.log(data)
       setMessages((prevMessages) => [...prevMessages, {sender: data.uid, text: data.message }]);
     });
  

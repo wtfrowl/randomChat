@@ -42,7 +42,6 @@ function App() {
     const newSocket = io("https://randomchat-7jgq.onrender.com"); // Create socket connection
     setSocket(newSocket); // Set the socket state
     setStarted(true);
-
     // Handle socket events
     newSocket.on("matched", (data) => {
       handleMatched(data.partnerId);
