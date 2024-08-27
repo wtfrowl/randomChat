@@ -19,11 +19,9 @@ const Chat = ({ socket, partnerId, onDisconnect }) => {
        // console.log(data)
       setMessages((prevMessages) => [...prevMessages, {sender: data.uid, text: data.message }]);
     });
- 
 
     // Listen for partner disconnection
     socket.on('partnerDisconnected', ({ partnerId }) => {
-      alert('Your partner has disconnected.');
       onDisconnect(partnerId); // Handle disconnection (e.g., return to start chat screen)
     });
 

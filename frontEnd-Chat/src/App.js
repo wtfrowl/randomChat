@@ -49,7 +49,7 @@ function App() {
 
     newSocket.on("partnerDisconnected", () => {
       handleDisconnect();
-      window.alert("Your partner has disconnected.");
+    
     });
   };
 
@@ -68,7 +68,7 @@ function App() {
       setMatched(false);
       setPartnerId(null);
     }
-    setSocket(null);
+    // setSocket(null);
     setStarted(false);
     setMatched(false);
     setPartnerId(null);
