@@ -19,7 +19,7 @@ function App() {
 
     const fetchUserCount = async () => {
       try {
-        const response = await fetch('http://localhost:3010/totalUsers');
+        const response = await fetch('https://randomchat-7jgq.onrender.com/totalUsers');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -36,7 +36,7 @@ function App() {
 
   const handleStartChat = () => {
       
-    const newSocket = io('http://localhost:3010'); // Create socket connection
+    const newSocket = io('https://randomchat-7jgq.onrender.com'); // Create socket connection
     setSocket(newSocket); // Set the socket state
     setStarted(true);
 
