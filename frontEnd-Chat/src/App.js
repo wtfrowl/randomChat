@@ -48,8 +48,8 @@ function App() {
     });
 
     newSocket.on("partnerDisconnected", () => {
-      alert("Your partner has disconnected.");
       handleDisconnect();
+      window.alert("Your partner has disconnected.");
     });
   };
 
@@ -65,6 +65,7 @@ function App() {
       socket.disconnect();
       setSocket(null);
     }
+    setSocket(null);
     setStarted(false);
     setMatched(false);
     setPartnerId(null);
