@@ -19,7 +19,8 @@ function App() {
 
     const fetchUserCount = async () => {
       try {
-        const response = await fetch('https://randomchat-7jgq.onrender.com/totalUsers');
+        const response = await fetch('https://randomchat-7jgq.onrender.com/totalUsers',{
+          method: "GET"});
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
