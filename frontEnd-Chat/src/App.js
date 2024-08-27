@@ -64,6 +64,9 @@ function App() {
       socket.emit("disconnectChat", { partnerId });
       socket.disconnect();
       setSocket(null);
+      setStarted(false);
+      setMatched(false);
+      setPartnerId(null);
     }
     setSocket(null);
     setStarted(false);
