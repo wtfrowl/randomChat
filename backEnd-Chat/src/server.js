@@ -8,12 +8,6 @@ const matchService = require("./services/matchService");
 
 require("dotenv").config();
 
-app.get("/totalUsers", async (req, res) => {
-  // Emit the total count of users in the pool when a user connects
-  const userCount = await poolService.getUserCountInPool();
-  res.status(200).json({ data: userCount + 2345 });
-});
-
 // CORS options
 const corsOptions = {
   origin: process.env.ORIGIN, // Allow requests from this origin
@@ -21,6 +15,15 @@ const corsOptions = {
   allowedHeaders: ["Content-Type", "Authorization", "my-custom-header"], // Allowed headers
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)
 };
+
+//server config
+
+const PORT = process.env.PORT || 3010;
+const server = http.createServer(app);
+
+const io = socketIo(server, {
+  cors: corsOptions, // Use the same CORS options for socket.io
+});
 
 // Apply CORS middleware with the specified options
 app.use(cors(corsOptions));
@@ -33,17 +36,8 @@ app.get("/totalUsers", async (req, res) => {
 
 
 
-//server config
-// Start the server
-const PORT = process.env.PORT || 3010;
 
-
-const server = http.createServer(app);
-
-const io = socketIo(server, {
-  cors: corsOptions, // Use the same CORS options for socket.io
-});
-
+// Listend to Server
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
