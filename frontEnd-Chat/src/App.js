@@ -60,6 +60,7 @@ function App() {
   };
 
   const handleDisconnect = () => {
+    console.log("the guy has disconnected")
     if (socket) {
       socket.emit("disconnectChat", { partnerId });
       socket.disconnect();
